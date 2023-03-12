@@ -16,7 +16,7 @@ sudo apt-get update && \
 sudo apt-get update && \
   sudo apt-get install -y aspnetcore-runtime-6.0
 
-# собираем/запускаем приложе
+#собираем/запускаем приложе
 cd DeployGuide/DeployGuide
 dotnet run
 
