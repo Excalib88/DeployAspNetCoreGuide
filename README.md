@@ -1,42 +1,42 @@
 # DeployAspNetCoreGuide
 
-#клоним репу
-apt install git
-cd /home
-git clone https://github.com/Excalib88/DeployGuide.git
+клоним репу \
+apt install git \
+cd /home \
+git clone https://github.com/Excalib88/DeployGuide.git \
 
-#ставим .net core sdk
+ставим .net core sdk \
 wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 
 sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-6.0
+  sudo apt-get install -y dotnet-sdk-6.0 \
 
 sudo apt-get update && \
-  sudo apt-get install -y aspnetcore-runtime-6.0
+  sudo apt-get install -y aspnetcore-runtime-6.0 \
 
-#собираем/запускаем приложе
-cd DeployGuide/DeployGuide
-dotnet run
+собираем/запускаем приложение \
+cd DeployGuide/DeployGuide \
+dotnet run \
 
-#установка nginx
-sudo apt update
-sudo apt install nginx
+установка nginx \
+sudo apt update \
+sudo apt install nginx \
 
-#открытие портов
-sudo ufw status
-sudo ufw allow 'Nginx Full'
-sudo ufw allow 22
-sudo ufw allow 80
-sudo ufw allow 443
-sudo ufw enable
-sudo ufw status
+открытие портов \ 
+sudo ufw status \
+sudo ufw allow 'Nginx Full' \
+sudo ufw allow 22 \
+sudo ufw allow 80 \
+sudo ufw allow 443 \
+sudo ufw enable \
+sudo ufw status \
 
-#настройка демона
-sudo nano /etc/systemd/system/kestrel-deploy-guide.service
+настройка демона \
+sudo nano /etc/systemd/system/kestrel-deploy-guide.service \
 
-#правим пути и энвы по необходимости и вставляем в созданный файл
+правим пути и энвы по необходимости и вставляем в созданный файл \
 [Unit]
 Description=Example .NET Web API App running on Linux
 
@@ -56,16 +56,16 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 [Install]
 WantedBy=multi-user.target
 
-#конец файла
-#продолжаем настройку демона
-sudo systemctl enable kestrel-deploy-guide.service
-sudo systemctl start kestrel-deploy-guide.service
-sudo systemctl status kestrel-deploy-guide.service
+конец файла
+продолжаем настройку демона
+sudo systemctl enable kestrel-deploy-guide.service \
+sudo systemctl start kestrel-deploy-guide.service \
+sudo systemctl status kestrel-deploy-guide.service \
 
-#настройки nginx
-sudo nano /etc/nginx/sites-available/excalib.ru
+настройки nginx \
+sudo nano /etc/nginx/sites-available/excalib.ru \
 
-#конфиг нжинкса проверь порт приложения в демоне
+конфиг нжинкса проверь порт приложения в демоне \
 
 server {
     listen        80;
