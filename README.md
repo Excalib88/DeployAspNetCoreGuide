@@ -83,7 +83,7 @@ server {
 }
 #конец файла
 
-sudo ln -s /etc/nginx/sites-available/excalib.ru /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/excalib.ru /etc/nginx/sites-enabled/ \
 sudo nano /etc/nginx/nginx.conf
 
 #раскоментировать в http блоке
@@ -96,12 +96,12 @@ sudo systemctl restart nginx
 
 #настраиваем https с сертом letsencrypt certbot
 
-sudo apt install snapd
-sudo snap install core; sudo snap refresh core
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-#если нжинкс слушает 80ый порт то надо вырубить нжинкс
-sudo systemctl stop nginx 
+sudo apt install snapd \
+sudo snap install core; sudo snap refresh core \
+sudo snap install --classic certbot \
+sudo ln -s /snap/bin/certbot /usr/bin/certbot \
+#если нжинкс слушает 80ый порт то надо вырубить нжинкс \
+sudo systemctl stop nginx \
 
-sudo certbot --nginx -d excalib.ru
-sudo certbot renew --dry-run
+sudo certbot --nginx -d excalib.ru \
+sudo certbot renew --dry-run \
