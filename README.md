@@ -101,7 +101,7 @@ sudo snap install core; sudo snap refresh core \
 sudo snap install --classic certbot \
 sudo ln -s /snap/bin/certbot /usr/bin/certbot \
 #если нжинкс слушает 80ый порт то надо вырубить нжинкс \
-sudo systemctl stop nginx \
+sudo systemctl stop nginx 
 
 sudo certbot --nginx -d excalib.ru \
-sudo certbot renew --dry-run \
+sudo certbot renew --dry-run 
